@@ -1,0 +1,189 @@
+{% extends "boiler.html" %}
+{%load static%}
+{%load capthename%}
+
+{%block title%}Hoc Query{%endblock title%}
+
+<!-- **************************************************************************************************************
+                                    Nav Bar Start
+************************************************************************************************************** -->
+
+{%block stats%}{%endblock stats%}                   {%block stats_link%}    inactive    {%endblock stats_link%}
+
+{%block home%}{%endblock home%}               {%block home_link%} inactive  {%endblock home_link%}
+
+{%block events%}{%endblock events%}                 {%block events_link%}   inactive    {%endblock events_link%}
+
+{%block config%}{%endblock config%}                 {%block config_link%}   inactive    {%endblock config_link%}
+
+{%block blocklist%}{%endblock blocklist%}           {%block blocklist_link%}    inactive    {%endblock blocklist_link%}
+
+{%block addhawk%}active{%endblock addhawk%}               {%block addhawk_link%}  active    {%endblock addhawk_link%}
+
+<!-- **************************************************************************************************************
+                                        Nav Bar End
+************************************************************************************************************** -->
+
+{%block body%}
+    <div class="row">
+        <div class="col">
+            <div id="header"
+                style="background-image: linear-gradient(45deg, #ef422a, #ffffff);background-size: 100%;-webkit-background-clip: text;-moz-background-clip: text;-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent;width: 300.2px;">
+                <p
+                    style="color: rgb(255,255,255);font-family: Poppins, sans-serif;font-size: 35px;text-align: left;font-weight: 700;margin-bottom: 0;width: 900.2px;">
+                    AdHoc Query</p>
+            </div>
+            <p style="color: #494d55;font-family: Poppins, sans-serif;width: 900.2px;">Query any host data
+                directly by using SQL schema and selecting a host.</p>
+        </div>
+    </div>
+    <form id="query_form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="row" style="margin-top: 1%;">
+                    <div class="col">
+                        <div>
+                            <!-- <input type="text" name="query" id="query" placeholder="Query" autocomplete="off"
+                            style="height: 2.5em; width: 100%; border: none;border-radius: 25px;padding-left: 5%;font-size: 20px;outline: none;font-weight: 700;">
+                        <span style="height: 100%;margin-left: -7%;"><i class="fas fa-search"></i></span> -->
+                            <textarea name="query" id="query" cols="30" rows="10" placeholder="Query"
+                                autocomplete="off"
+                                style="height: 4em; width: 100%; border: none;padding: 2% 5%;font-size: 15px;outline: none;font-weight: 500;border-radius: 5px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="dropdown">
+                                    <input type="checkbox" onchange="selectall()" id="select_btn"> <strong
+                                        style="color: #41464D;">Select All</strong>
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        style="height: 3.5em; width: 25em;border-radius: 10px;font-weight: 600;"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Node Identifiers
+                                    </button>
+                                    <div class="dropdown-menu" style="width: 400px;"
+                                        aria-labelledby="dropdownMenuButton">
+                                        {%if hostlist%}
+                                        {%for i in hostlist%}
+                                        <div class="row">
+                                            <div class="col-sm-1"
+                                                style="display: flex;align-items: center;">
+                                                <input type="checkbox" value="{{i.host_identifier}}"
+                                                    id="{{i.host_identifier}}"
+                                                    style="margin-left: 10px; z-index: 2;">
+                                            </div>
+                                            <div class="col-sm-11">
+                                                <a class="dropdown-item"
+                                                    onclick="document.getElementById('{{i.host_identifier}}').click()"
+                                                    style="background: #36fe137e;">
+                                                    {{i.hostname}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {%endfor%}
+                                        {%else%}
+                                        <a class="dropdown-item" href="#">
+                                            No Nodes Available
+                                        </a>
+                                        {%endif%}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- <div class="col-lg-2" style="float: right;">
+                            <span onclick="hostfun()"
+                                style="cursor: pointer;margin-left: 40%;border: none;border-radius: 100px;background-color: transparent;display: flex;justify-content: center;align-items: center;">
+                                <i class="fas fa-check" style="font-size: 30px;color: yellowgreen;">
+                                </i>
+                            </span>
+                        </div> -->
+                        </div>
+                        <p id="error" style="color: tomato;margin-top: 5%;"></p>
+                        <input type="submit" value="Cancel Query" id="cancel_query"
+                            style="margin-top: 5%;width: 30%;height: 2.5em;font-size: 15px;font-weight: 700;background: gold;border: none;border-radius: 10px; display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <input type="checkbox" name="hosts" id="hosts" value="False"
+                    style="width: 30px;height: 30px;display: none;" required>
+                <input type="checkbox" name="config_ids" id="config_ids" value="False"
+                    style="width: 30px;height: 30px;display: none;">
+                <input type="submit" value="Submit" id="submit_query"
+                    style="margin-top: 2%;width: 30%;height: 2.5em;font-size: 20px;font-weight: 700;background: gold;border: none;border-radius: 10px;">
+            </div>
+        </div>
+    </form>
+    <!-- containt goes here  -->
+    <div class="row query-table" id="query_main">
+        <div class="col">
+            <button onclick="downloadCSV()" class="btn btn-outline-primary" style="width: 10%;margin-bottom: 1%;"><i class="fa fa-download" aria-hidden="true"></i><span style="margin-left: 10%;">Download</span></button>
+            <div id="mySpace" style="height: 100%;" class="ag-theme-alpine-dark"></div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock body%}
+
+{%block script%}
+<script type="text/javascript" src="{%static 'assets/js/addhawk.js'%}"></script>
+<script>
+    var host = [];
+    var hostnames = [];
+    function hostfun() {
+        {%for i in hostlist %}
+        if (document.getElementById("{{ i.host_identifier }}").checked == true) {
+            if (!(host.find(element => element == document.getElementById("{{ i.host_identifier }}").value))) {
+                host.push(document.getElementById("{{ i.host_identifier }}").value);
+                document.getElementById("hosts").value = host;
+                document.getElementById("hosts").checked = true;
+                // hostnames.push(document.getElementById("{{ i.host_identifier }}").value);
+                // document.getElementById("hostnames").value = hostnames;
+                // document.getElementById("hostnames").checked = true;
+            }
+        }
+        if (document.getElementById("{{ i.host_identifier }}").checked == false) {
+            host.pop(document.getElementById("{{ i.host_identifier }}").value);
+            document.getElementById("hosts").value = host;
+            // hostnames.pop(document.getElementById("{{ i.host_identifier }}").value);
+            // document.getElementById("hostnames").value = hostnames;
+        }
+        {% endfor %}
+        if (host.length == 0) {
+            document.getElementById("hosts").checked = false;
+        }
+    }
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    document.getElementById("submit_query").addEventListener("click", function (event) {
+        event.preventDefault();
+        querySubmit();
+    });
+    document.getElementById("cancel_query").addEventListener("click", function (event) {
+        event.preventDefault();
+        queryCancel();
+    });
+</script>
+<script>
+    function selectall() {
+        if (document.getElementById("select_btn").checked == true) {
+            {%for i in hostlist %}
+            document.getElementById("{{i.host_identifier}}").checked = true;
+            {% endfor %}
+        }
+        else {
+            {%for i in hostlist %}
+            document.getElementById("{{i.host_identifier}}").checked = false;
+            {% endfor %}
+        }
+    }
+</script>
+{%endblock script%}

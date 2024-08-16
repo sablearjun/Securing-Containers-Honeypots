@@ -1,0 +1,1481 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add Config</title>
+    <link rel="stylesheet" href="{%static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="{%static 'assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Features-Clean.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Navigation-Clean.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Social-Icons.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/button.css'%}">
+</head>
+
+<body style="background: #21242b;font-family: Poppins, sans-serif;">
+    <div class="row" style="width: 1800px;">
+        <div class="col-xl-1 offset-xl-0">
+            <div class="container"
+                style="height: 818px;width: 109px;margin: 0;padding: 0;text-align: center;padding-top: 20px;">
+                <div class="text-center"
+                    style="margin-top: 60px;padding: 41px 0px 23px;padding-top: 10px;text-align: center;"><a
+                        href="/config">
+                        <div
+                            style="height: 50px;padding: 0;border-width: 0;border-left-style: solid;border-left-color: #ef422a;">
+                            <div
+                                style="height: 57px;width: 70px;margin-left: 26px;padding: 17px;background: rgba(17,18,22,0);text-align: center;border-radius: 0px;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+                                <i class="fas fa-arrow-left" style="font-size: 20px;color: #ef422a;"></i>
+                            </div>
+                        </div>
+                    </a></div>
+            </div>
+        </div>
+        <div class="col-xl-11 web-body">
+            <form action="/upcon/" method="post" autocomplete="off">
+                {% csrf_token %}
+            <div class="container" style="margin-top: 2%;">
+                <section class="features-clean" style="background: #31343b;border-radius: 25px;height: 200px;">
+                    <div class="container Host_identifier">
+                        <div class="intro">
+                            <h2 class="text-center" style="color: rgb(255,255,255);">Update Config</h2>
+                            <p class="text-center">
+                                You are editing Config for config ID : <span
+                                    style="color: aqua;">{{editcon.0.id}}</span>
+                            </p>
+                            <div style="display: flex;justify-content: center;">
+                                <input type="text" name="config_name" id="config_name" style="background-color: transparent;border: 0;color: #787D80;font-size: larger;width: 40%;" value="{{editcon.0.query_name}}" required>
+                                <!-- <span style="font-size: larger;">{{editcon.0.query_name}}</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_events %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Pro_Events">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;background: #21242b;height: 50px;width: 30%;text-align: center;border-top-right-radius: 0px;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn1()" style="cursor: pointer;">Process
+                                            Events&nbsp;</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="row"
+                                style="color: aliceblue;{%if data.schedule.process_events %}display: flex;{%else%}display: none;{%endif%}"
+                                id="Pro_events">
+                                <div class="col-xl-4"></div>
+                                <div class="col-xl-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" {%if data.schedule.process_events %}checked{%endif%}
+                                            name="pro_events" id="pro_events" value="true"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval1" name="interval1" placeholder="10-100"
+                                                value="{{data.schedule.process_events.interval}}" pattern="[0-9]{2}"
+                                                style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_file_events %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Pro_File_Events">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn2()" style="cursor: pointer;">Process File
+                                            Events</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_file_events %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Pro_file_events">
+                            <div class="col-xl-4"></div>
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_file_events %}checked{%endif%}
+                                        name="pro_file_events" value="true" id="pro_file_events"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <input type="tel" id="interval2" name="interval2" placeholder="10-100"
+                                            value="{{data.schedule.process_file_events.interval}}" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_list %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Pro_List">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn3()" style="cursor: pointer;">Process List</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_list %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Pro_list">
+                            <div class="col-xl-4"></div>
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" id="interval3" name="interval3" placeholder="10-100"
+                                            value="{{data.schedule.process_list.interval}}" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_list %} checked {%endif%}
+                                        name="pro_list" value="true" id="pro_list"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap" id="snap" style="cursor: pointer;">
+                                            {%if data.schedule.process_list.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.process_list.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.socket_events %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Soc_Events">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn4()" style="cursor: pointer;">Socket Events</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.socket_events %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Soc_events">
+                            <div class="col-xl-4"></div>
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.socket_events %}checked{%endif%}
+                                        name="soc_events" value="true" id="soc_events"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <input type="tel" id="interval4" name="interval4" placeholder="10-100"
+                                            value="{{data.schedule.socket_events.interval}}" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.user_events %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Usr_Events">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn5()" style="cursor: pointer;">User Events</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.user_events %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Usr_events">
+                            <div class="col-xl-4"></div>
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.user_events %}checked{%endif%}
+                                        name="usr_events" value="true" id="usr_events"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <input type="tel" id="interval5" name="interval5" placeholder="10-100"
+                                            value="{{data.schedule.user_events.interval}}" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_open_pipes %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Process_Open_Pipes">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn6()" style="cursor: pointer;">Process Open
+                                            Pipes</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_open_pipes %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Process_open_pipes">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" id="interval6" name="interval6" placeholder="10-100"
+                                            pattern="[0-9]{2}" style="width: 70px;height: 40px;"
+                                            value="{{data.schedule.process_open_pipes.interval}}">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_open_pipes %}checked{%endif%}
+                                        name="process_open_pipes" value="true" id="process_open_pipes"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap1" id="snap1" style="cursor: pointer;">
+                                            {%if data.schedule.process_open_pipes.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.process_open_pipes.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_open_files %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Process_Open_Files">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn7()" style="cursor: pointer;">Process Open
+                                            Files</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_open_files %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Process_open_files">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.process_open_files.interval}}"
+                                            id="interval7" name="interval7" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_open_files %}checked{%endif%}
+                                        name="process_open_files" value="true" id="process_open_files"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap2" id="snap2" style="cursor: pointer;">
+                                            {%if data.schedule.process_open_files.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.process_open_files.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.listening_ports %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Listening_Ports">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn8()" style="cursor: pointer;">Listening Ports</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.listening_ports %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Listening_ports">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.listening_ports.interval}}"
+                                            id="interval8" name="interval8" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.listening_ports %}checked{%endif%}
+                                        name="listening_ports" value="true" id="listening_ports"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap3" id="snap3" style="cursor: pointer;">
+                                            {%if data.schedule.listening_ports.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.listening_ports.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.routes %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="RouteS">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn9()" style="cursor: pointer;">Routes</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.routes %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Routes">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.routes.interval}}" id="interval9"
+                                            name="interval9" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.routes %}checked{%endif%} name="routes"
+                                        value="true" id="routes" style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap4" id="snap4" style="cursor: pointer;">
+                                            {%if data.schedule.routes.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.routes.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.logged_in_users %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Logged_In_Users">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn10()" style="cursor: pointer;">Logged In Users</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.logged_in_users %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Logged_in_users">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.logged_in_users.interval}}"
+                                            id="interval10" name="interval10" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.logged_in_users %}checked{%endif%}
+                                        name="logged_in_users" value="true" id="logged_in_users"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap5" id="snap5" style="cursor: pointer;">
+                                            {%if data.schedule.logged_in_users.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.logged_in_users.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.arp_cache %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Arp_Cache">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn11()" style="cursor: pointer;">Arp Cache</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.arp_cache %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Arp_cache">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.arp_cache.interval}}" id="interval11"
+                                            name="interval11" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.arp_cache %}checked{%endif%}
+                                        name="arp_cache" value="true" id="arp_cache"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap6" id="snap6" style="cursor: pointer;">
+                                            {%if data.schedule.arp_cache.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.arp_cache.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.suid_bin %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Suid_Bin">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn12()" style="cursor: pointer;">Suid Bin</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.suid_bin %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Suid_bin">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.suid_bin.interval}}" id="interval12"
+                                            name="interval12" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.suid_bin %}checked{%endif%}
+                                        name="suid_bin" value="true" id="suid_bin"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap7" id="snap7" style="cursor: pointer;">
+                                            {%if data.schedule.suid_bin.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.suid_bin.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_open_sockets %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Process_Open_Sockets">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn13()" style="cursor: pointer;">Process Open
+                                            Sockets</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_open_sockets %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Process_open_sockets">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.process_open_sockets.interval}}"
+                                            id="interval13" name="interval13" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_open_sockets %}checked{%endif%}
+                                        name="process_open_sockets" value="true" id="process_open_sockets"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap8" id="snap8" style="cursor: pointer;">
+                                            {%if data.schedule.process_open_sockets.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.process_open_sockets.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.users %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="UserS">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn14()" style="cursor: pointer;">Users</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.users %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Users">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.users.interval}}" id="interval14"
+                                            name="interval14" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.users %}checked{%endif%} name="users"
+                                        value="true" id="users" style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap9" id="snap9" style="cursor: pointer;">
+                                            {%if data.schedule.users.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.users.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.groups %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="GroupS">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn15()" style="cursor: pointer;">Groups</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.groups %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Groups">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.groups.interval}}" id="interval15"
+                                            name="interval15" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.groups %}checked{%endif%} name="groups"
+                                        value="true" id="groups" style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap10" id="snap10" style="cursor: pointer;">
+                                            {%if data.schedule.groups.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.groups.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.process_envs %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%"
+                        id="Process_Envs">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn16()" style="cursor: pointer;">Process Envs</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"
+                            style="color: aliceblue;{%if data.schedule.process_envs %}display: flex;{%else%}display: none;{%endif%}"
+                            id="Process_envs">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.process_envs.interval}}"
+                                            id="interval16" name="interval16" placeholder="10-100" pattern="[0-9]{2}"
+                                            style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 2%;">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Snapshot</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.process_envs %}checked{%endif%}
+                                        name="process_envs" value="true" id="process_envs"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <select name="snap11" id="snap11" style="cursor: pointer;">
+                                            {%if data.schedule.process_envs.snapshot == True%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%elif data.schedule.process_envs.snapshot == False%}
+                                            <option value="True">True</option>
+                                            <option value="False" selected>False</option>
+                                            {%else%}
+                                            <option value="True" selected>True</option>
+                                            <option value="False">False</option>
+                                            {%endif%}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.memory_info %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%" id="Memory_Info">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn17()" style="cursor: pointer;">Memory Info</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="color: aliceblue;{%if data.schedule.memory_info %}display: flex;{%else%}display: none;{%endif%}" id="Memory_info">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.memory_info %}checked{%endif%} name="memory_info" value="true" id="memory_info"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.memory_info.interval}}" id="interval17" name="interval17" placeholder="10-100"
+                                            pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="features-clean"
+                        style="{%if data.schedule.cpu_time %}background: #31343b;{%else%}background: transparent;height: 0px;{%endif%}border-radius: 25px;margin-top: 2%" id="Cpu_Time">
+                        <div class="container Host_identifier" style="padding-left: 0px;">
+                            <div class="row features" style="margin-left: 20px;">
+                                <div class="col" style="padding-left: 0px;">
+                                    <h1
+                                        style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                        <strong onclick="btn18()" style="cursor: pointer;">Cpu Time</strong><br>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="color: aliceblue;{%if data.schedule.cpu_time %}display: flex;{%else%}display: none;{%endif%}" id="Cpu_time">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-sm-3 d-flex" style="justify-content: center;align-items: center;">
+                                        <h5>Interval</h5>
+                                    </div>
+                                    <input type="checkbox" {%if data.schedule.cpu_time %}checked{%endif%} name="cpu_time" value="true" id="cpu_time"
+                                        style="width: 30px;height: 30px;display: none;">
+                                    <div class="col-sm-5">
+                                        <input type="tel" value="{{data.schedule.cpu_time.interval}}" id="interval18" name="interval18" placeholder="10-100"
+                                            pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <input type="checkbox" name="conid" value="{{editcon.0.id}}"
+                        style="width: 30px;height: 30px;display: none;" checked>
+                    <div style="text-align: center;margin-top: 4%;margin-bottom: 2%;">
+                        <div class="wrap">
+                            <button class="button">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Process Events
+        {%if data.schedule.process_events %}
+        let pestate = 1;
+        {%else%}
+        let pestate = 0;
+        {% endif %}
+        let pro_events = document.getElementById('pro_events');
+        let pro_events_div = document.getElementById('Pro_events');
+        let pro_events_sec = document.getElementById('Pro_Events');
+        let interval1 = document.getElementById('interval1');
+        function btn1() {
+            if (pestate == 0) {
+                pro_events.checked = true;
+                interval1.required = true;
+                pro_events_div.style.display = "flex";
+                pro_events_sec.style.height = "10%";
+                pro_events_sec.style.background = "#31343b";
+                pestate = 1;
+            }
+            else if (pestate == 1) {
+                pro_events.checked = false;
+                interval1.required = false;
+                pro_events_div.style.display = "none";
+                pro_events_sec.style.height = "0px";
+                pro_events_sec.style.background = "transparent";
+                pestate = 0;
+            }
+        }
+        // Process Events ends
+
+        // Process File Events
+        {%if data.schedule.process_file_events %}
+        let pfestate = 1;
+        {%else%}
+        let pfestate = 0;
+        {% endif %}
+        let pro_file_events = document.getElementById('pro_file_events');
+        let pro_file_events_div = document.getElementById('Pro_file_events');
+        let pro_file_events_sec = document.getElementById('Pro_File_Events');
+        let interval2 = document.getElementById('interval2');
+        function btn2() {
+            if (pfestate == 0) {
+                pro_file_events.checked = true;
+                interval2.required = true;
+                pro_file_events_div.style.display = "flex";
+                pro_file_events_sec.style.height = "10%";
+                pro_file_events_sec.style.background = "#31343b";
+                pfestate = 1;
+            }
+            else if (pfestate == 1) {
+                pro_file_events.checked = false;
+                interval2.required = false;
+                pro_file_events_div.style.display = "none";
+                pro_file_events_sec.style.height = "0px";
+                pro_file_events_sec.style.background = "transparent";
+                pfestate = 0;
+            }
+        }
+        // Process File Events ends
+
+        // Process List
+        {%if data.schedule.process_list %}
+        let plstate = 1;
+        {%else%}
+        let plstate = 0;
+        {% endif %}
+        let pro_list = document.getElementById('pro_list');
+        let pro_list_div = document.getElementById('Pro_list');
+        let pro_list_sec = document.getElementById('Pro_List');
+        let interval3 = document.getElementById('interval3');
+        let snap = document.getElementById('snap');
+        function btn3() {
+            if (plstate == 0) {
+                pro_list.checked = true;
+                interval3.required = true;
+                snap.required = true;
+                pro_list_div.style.display = "flex";
+                pro_list_sec.style.height = "10%";
+                pro_list_sec.style.background = "#31343b";
+                plstate = 1;
+            }
+            else if (plstate == 1) {
+                pro_list.checked = false;
+                interval3.required = false;
+                snap.required = false;
+                pro_list_div.style.display = "none";
+                pro_list_sec.style.height = "0px";
+                pro_list_sec.style.background = "transparent";
+                plstate = 0;
+            }
+        }
+        // Process List ends
+
+        // Socket Events
+        {%if data.schedule.socket_events %}
+        let sestate = 1;
+        {%else%}
+        let sestate = 0;
+        {% endif %}
+        let soc_events = document.getElementById('soc_events');
+        let soc_events_div = document.getElementById('Soc_events');
+        let soc_events_sec = document.getElementById('Soc_Events');
+        let interval4 = document.getElementById('interval4');
+        function btn4() {
+            if (sestate == 0) {
+                soc_events.checked = true;
+                interval4.required = true;
+                soc_events_div.style.display = "flex";
+                soc_events_sec.style.height = "10%";
+                soc_events_sec.style.background = "#31343b";
+                sestate = 1;
+            }
+            else if (sestate == 1) {
+                soc_events.checked = false;
+                interval4.required = false;
+                soc_events_div.style.display = "none";
+                soc_events_sec.style.height = "0px";
+                soc_events_sec.style.background = "transparent";
+                sestate = 0;
+            }
+        }
+        // Socket Events ends
+
+        // User Events
+        {%if data.schedule.user_events %}
+        let uestate = 1;
+        {%else%}
+        let uestate = 0;
+        {% endif %}
+        let usr_events = document.getElementById('usr_events');
+        let usr_events_div = document.getElementById('Usr_events');
+        let usr_events_sec = document.getElementById('Usr_Events');
+        let interval5 = document.getElementById('interval5');
+        function btn5() {
+            if (uestate == 0) {
+                usr_events.checked = true;
+                interval5.required = true;
+                usr_events_div.style.display = "flex";
+                usr_events_sec.style.height = "10%";
+                usr_events_sec.style.background = "#31343b";
+                uestate = 1;
+            }
+            else if (uestate == 1) {
+                usr_events.checked = false;
+                interval5.required = false;
+                usr_events_div.style.display = "none";
+                usr_events_sec.style.height = "0px";
+                usr_events_sec.style.background = "transparent";
+                uestate = 0;
+            }
+        }
+        // User Events ends
+
+        // Process Open Pipes
+        {%if data.schedule.process_open_pipes %}
+        let popstate = 1;
+        {%else%}
+        let popstate = 0;
+        {% endif %}
+        let process_open_pipes = document.getElementById('process_open_pipes');
+        let process_open_pipes_div = document.getElementById('Process_open_pipes');
+        let process_open_pipes_sec = document.getElementById('Process_Open_Pipes');
+        let interval6 = document.getElementById('interval6');
+        let snap1 = document.getElementById('snap1');
+        function btn6() {
+            if (popstate == 0) {
+                process_open_pipes.checked = true;
+                interval6.required = true;
+                snap.required = true;
+                process_open_pipes_div.style.display = "flex";
+                process_open_pipes_sec.style.height = "10%";
+                process_open_pipes_sec.style.background = "#31343b";
+                popstate = 1;
+            }
+            else if (popstate == 1) {
+                process_open_pipes.checked = false;
+                interval6.required = false;
+                snap.required = false;
+                process_open_pipes_div.style.display = "none";
+                process_open_pipes_sec.style.height = "0px";
+                process_open_pipes_sec.style.background = "transparent";
+                popstate = 0;
+            }
+        }
+        // Process Open Pipes ends
+
+        // Process Open Files
+        {%if data.schedule.process_open_files %}
+        let pofstate = 1;
+        {%else%}
+        let pofstate = 0;
+        {% endif %}
+        let process_open_files = document.getElementById('process_open_files');
+        let process_open_files_div = document.getElementById('Process_open_files');
+        let process_open_files_sec = document.getElementById('Process_Open_Files');
+        let interval7 = document.getElementById('interval7');
+        let snap2 = document.getElementById('snap2');
+        function btn7() {
+            if (pofstate == 0) {
+                process_open_files.checked = true;
+                interval7.required = true;
+                snap2.required = true;
+                process_open_files_div.style.display = "flex";
+                process_open_files_sec.style.height = "10%";
+                process_open_files_sec.style.background = "#31343b";
+                pofstate = 1;
+            }
+            else if (pofstate == 1) {
+                process_open_files.checked = false;
+                interval7.required = false;
+                snap2.required = false;
+                process_open_files_div.style.display = "none";
+                process_open_files_sec.style.height = "0px";
+                process_open_files_sec.style.background = "transparent";
+                pofstate = 0;
+            }
+        }
+        // Process Open Files ends
+
+        // Listening Ports
+        {%if data.schedule.listening_ports %}
+        let lpstate = 1;
+        {%else%}
+        let lpstate = 0;
+        {% endif %}
+        let listening_ports = document.getElementById('listening_ports');
+        let listening_ports_div = document.getElementById('Listening_ports');
+        let listening_ports_sec = document.getElementById('Listening_Ports');
+        let interval8 = document.getElementById('interval8');
+        let snap3 = document.getElementById('snap3');
+        function btn8() {
+            if (lpstate == 0) {
+                listening_ports.checked = true;
+                interval8.required = true;
+                snap3.required = true;
+                listening_ports_div.style.display = "flex";
+                listening_ports_sec.style.height = "10%";
+                listening_ports_sec.style.background = "#31343b";
+                lpstate = 1;
+            }
+            else if (lpstate == 1) {
+                listening_ports.checked = false;
+                interval8.required = false;
+                snap3.required = false;
+                listening_ports_div.style.display = "none";
+                listening_ports_sec.style.height = "0px";
+                listening_ports_sec.style.background = "transparent";
+                lpstate = 0;
+            }
+        }
+        // Listening Ports ends
+
+        // Routes
+        {%if data.schedule.routes %}
+        let rstate = 1;
+        {%else%}
+        let rstate = 0;
+        {% endif %}
+        let routes = document.getElementById('routes');
+        let routes_div = document.getElementById('Routes');
+        let routes_sec = document.getElementById('RouteS');
+        let interval9 = document.getElementById('interval9');
+        let snap4 = document.getElementById('snap4');
+        function btn9() {
+            if (rstate == 0) {
+                routes.checked = true;
+                interval9.required = true;
+                snap4.required = true;
+                routes_div.style.display = "flex";
+                routes_sec.style.height = "10%";
+                routes_sec.style.background = "#31343b";
+                rstate = 1;
+            }
+            else if (rstate == 1) {
+                routes.checked = false;
+                interval9.required = false;
+                snap4.required = false;
+                routes_div.style.display = "none";
+                routes_sec.style.height = "0px";
+                routes_sec.style.background = "transparent";
+                rstate = 0;
+            }
+        }
+        // Routes ends
+
+        // logged_in_users
+        {%if data.schedule.logged_in_users %}
+        let liustate = 1;
+        {%else%}
+        let liustate = 0;
+        {% endif %}
+        let logged_in_users = document.getElementById('logged_in_users');
+        let logged_in_users_div = document.getElementById('Logged_in_users');
+        let logged_in_users_sec = document.getElementById('Logged_In_Users');
+        let interval10 = document.getElementById('interval10');
+        let snap5 = document.getElementById('snap5');
+        function btn10() {
+            if (liustate == 0) {
+                logged_in_users.checked = true;
+                interval10.required = true;
+                snap5.required = true;
+                logged_in_users_div.style.display = "flex";
+                logged_in_users_sec.style.height = "10%";
+                logged_in_users_sec.style.background = "#31343b";
+                liustate = 1;
+            }
+            else if (liustate == 1) {
+                logged_in_users.checked = false;
+                interval10.required = false;
+                snap5.required = false;
+                logged_in_users_div.style.display = "none";
+                logged_in_users_sec.style.height = "0px";
+                logged_in_users_sec.style.background = "transparent";
+                liustate = 0;
+            }
+        }
+        // logged_in_users ends
+
+        // arp_cache
+        {%if data.schedule.arp_cache %}
+        let acstate = 1;
+        {%else%}
+        let acstate = 0;
+        {% endif %}
+        let arp_cache = document.getElementById('arp_cache');
+        let arp_cache_div = document.getElementById('Arp_cache');
+        let arp_cache_sec = document.getElementById('Arp_Cache');
+        let interval11 = document.getElementById('interval11');
+        let snap6 = document.getElementById('snap6');
+        function btn11() {
+            if (acstate == 0) {
+                arp_cache.checked = true;
+                interval11.required = true;
+                snap6.required = true;
+                arp_cache_div.style.display = "flex";
+                arp_cache_sec.style.height = "10%";
+                arp_cache_sec.style.background = "#31343b";
+                acstate = 1;
+            }
+            else if (acstate == 1) {
+                arp_cache.checked = false;
+                interval11.required = false;
+                snap6.required = false;
+                arp_cache_div.style.display = "none";
+                arp_cache_sec.style.height = "0px";
+                arp_cache_sec.style.background = "transparent";
+                acstate = 0;
+            }
+        }
+        // arp_cache ends
+
+        // suid_bin
+        {%if data.schedule.suid_bin %}
+        let sbstate = 1;
+        {%else%}
+        let sbstate = 0;
+        {% endif %}
+        let suid_bin = document.getElementById('suid_bin');
+        let suid_bin_div = document.getElementById('Suid_bin');
+        let suid_bin_sec = document.getElementById('Suid_Bin');
+        let interval12 = document.getElementById('interval12');
+        let snap7 = document.getElementById('snap7');
+        function btn12() {
+            if (sbstate == 0) {
+                suid_bin.checked = true;
+                interval12.required = true;
+                snap7.required = true;
+                suid_bin_div.style.display = "flex";
+                suid_bin_sec.style.height = "10%";
+                suid_bin_sec.style.background = "#31343b";
+                sbstate = 1;
+            }
+            else if (sbstate == 1) {
+                suid_bin.checked = false;
+                interval12.required = false;
+                snap7.required = false;
+                suid_bin_div.style.display = "none";
+                suid_bin_sec.style.height = "0px";
+                suid_bin_sec.style.background = "transparent";
+                sbstate = 0;
+            }
+        }
+        // suid_bin ends
+
+        // process_open_sockets
+        {%if data.schedule.process_open_sockets %}
+        let posstate = 1;
+        {%else%}
+        let posstate = 0;
+        {% endif %}
+        let process_open_sockets = document.getElementById('process_open_sockets');
+        let process_open_sockets_div = document.getElementById('Process_open_sockets');
+        let process_open_sockets_sec = document.getElementById('Process_Open_Sockets');
+        let interval13 = document.getElementById('interval13');
+        let snap8 = document.getElementById('snap8');
+        function btn13() {
+            if (posstate == 0) {
+                process_open_sockets.checked = true;
+                interval13.required = true;
+                snap8.required = true;
+                process_open_sockets_div.style.display = "flex";
+                process_open_sockets_sec.style.height = "10%";
+                process_open_sockets_sec.style.background = "#31343b";
+                posstate = 1;
+            }
+            else if (posstate == 1) {
+                process_open_sockets.checked = false;
+                interval13.required = false;
+                snap8.required = false;
+                process_open_sockets_div.style.display = "none";
+                process_open_sockets_sec.style.height = "0px";
+                process_open_sockets_sec.style.background = "transparent";
+                posstate = 0;
+            }
+        }
+        // process_open_sockets ends
+
+        // users
+        {%if data.schedule.users %}
+        let ustate = 1;
+        {%else%}
+        let ustate = 0;
+        {% endif %}
+        let users = document.getElementById('users');
+        let users_div = document.getElementById('Users');
+        let users_sec = document.getElementById('UserS');
+        let interval14 = document.getElementById('interval14');
+        let snap9 = document.getElementById('snap9');
+        function btn14() {
+            if (ustate == 0) {
+                users.checked = true;
+                interval14.required = true;
+                snap9.required = true;
+                users_div.style.display = "flex";
+                users_sec.style.height = "10%";
+                users_sec.style.background = "#31343b";
+                ustate = 1;
+            }
+            else if (ustate == 1) {
+                users.checked = false;
+                interval14.required = false;
+                snap9.required = false;
+                users_div.style.display = "none";
+                users_sec.style.height = "0px";
+                users_sec.style.background = "transparent";
+                ustate = 0;
+            }
+        }
+        // users ends
+
+        // groups
+        {%if data.schedule.groups %}
+        let gstate = 1;
+        {%else%}
+        let gstate = 0;
+        {% endif %}
+        let groups = document.getElementById('groups');
+        let groups_div = document.getElementById('Groups');
+        let groups_sec = document.getElementById('GroupS');
+        let interval15 = document.getElementById('interval15');
+        let snap10 = document.getElementById('snap10');
+        function btn15() {
+            if (gstate == 0) {
+                groups.checked = true;
+                interval15.required = true;
+                snap10.required = true;
+                groups_div.style.display = "flex";
+                groups_sec.style.height = "10%";
+                groups_sec.style.background = "#31343b";
+                gstate = 1;
+            }
+            else if (gstate == 1) {
+                groups.checked = false;
+                interval15.required = false;
+                snap10.required = false;
+                groups_div.style.display = "none";
+                groups_sec.style.height = "0px";
+                groups_sec.style.background = "transparent";
+                gstate = 0;
+            }
+        }
+        // groups ends
+
+        // process_envs
+        {%if data.schedule.process_envs %}
+        let penstate = 1;
+        {%else%}
+        let penstate = 0;
+        {% endif %}
+        let process_envs = document.getElementById('process_envs');
+        let process_envs_div = document.getElementById('Process_envs');
+        let process_envs_sec = document.getElementById('Process_Envs');
+        let interval16 = document.getElementById('interval16');
+        let snap11 = document.getElementById('snap11');
+        function btn16() {
+            if (penstate == 0) {
+                process_envs.checked = true;
+                interval16.required = true;
+                snap11.required = true;
+                process_envs_div.style.display = "flex";
+                process_envs_sec.style.height = "10%";
+                process_envs_sec.style.background = "#31343b";
+                penstate = 1;
+            }
+            else if (penstate == 1) {
+                process_envs.checked = false;
+                interval16.required = false;
+                snap11.required = false;
+                process_envs_div.style.display = "none";
+                process_envs_sec.style.height = "0px";
+                process_envs_sec.style.background = "transparent";
+                penstate = 0;
+            }
+        }
+        // process_envs
+
+        // memory_info
+        {%if data.schedule.memory_info %}
+        let mistate = 1;
+        {%else%}
+        let mistate = 0;
+        {% endif %}
+        let memory_info = document.getElementById('memory_info');
+        let memory_info_div = document.getElementById('Memory_info');
+        let memory_info_sec = document.getElementById('Memory_Info');
+        let interval17 = document.getElementById('interval17');
+        function btn17() {
+            if (mistate == 0) {
+                memory_info.checked = true;
+                interval17.required = true;
+                memory_info_div.style.display = "flex";
+                memory_info_sec.style.height = "10%";
+                memory_info_sec.style.background = "#31343b";
+                mistate = 1;
+            }
+            else if (mistate == 1) {
+                memory_info.checked = false;
+                interval17.required = false;
+                memory_info_div.style.display = "none";
+                memory_info_sec.style.height = "0px";
+                memory_info_sec.style.background = "transparent";
+                mistate = 0;
+            }
+        }
+        // memory_info
+
+        // cpu_time
+        {%if data.schedule.cpu_time %}
+        let ctstate = 1;
+        {%else%}
+        let ctstate = 0;
+        {% endif %}
+        let cpu_time = document.getElementById('cpu_time');
+        let cpu_time_div = document.getElementById('Cpu_time');
+        let cpu_time_sec = document.getElementById('Cpu_Time');
+        let interval18 = document.getElementById('interval18');
+        function btn18() {
+            if (ctstate == 0) {
+                cpu_time.checked = true;
+                interval17.required = true;
+                cpu_time_div.style.display = "flex";
+                cpu_time_sec.style.height = "10%";
+                cpu_time_sec.style.background = "#31343b";
+                ctstate = 1;
+            }
+            else if (ctstate == 1) {
+                cpu_time.checked = false;
+                interval17.required = false;
+                cpu_time_div.style.display = "none";
+                cpu_time_sec.style.height = "0px";
+                cpu_time_sec.style.background = "transparent";
+                ctstate = 0;
+            }
+        }
+// cpu_time
+
+    </script>
+    <script src="{%static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{%static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+</body>
+
+</html>

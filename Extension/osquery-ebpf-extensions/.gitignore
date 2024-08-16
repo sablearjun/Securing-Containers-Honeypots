@@ -1,0 +1,6 @@
+**/*.o
+**/*_bpfel.go
+**/*_bpfeb.go
+**/*.db
+.vscode/settings.json
+go/ebpf_process_events_v2/ebpf_process_events_v2

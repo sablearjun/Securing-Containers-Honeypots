@@ -1,0 +1,33 @@
+version: "3"
+name: vajra-ui
+services:
+  frontend_service:
+    container_name: frontend
+    restart: always
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    command: ["nginx", "-g", "daemon off;"]
+    ports:
+      - "80:80"
+    networks:
+      - vajra_network
+
+  backend_service:
+    container_name: backend
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    env_file:
+      - ./Server/.env.docker
+    restart: always
+    command: ["npm", "start"]
+    ports:
+      - "4000:4000"
+    networks:
+      - vajra_network
+
+networks:
+  vajra_network:
+    driver: bridge
+    external: true

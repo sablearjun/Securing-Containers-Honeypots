@@ -1,0 +1,91 @@
+name: Node.js API CI
+
+on:
+  push:
+    branches:
+      - Vajra-UI
+    # paths:
+    #   - 'Server/src/**'
+  pull_request:
+    branches:
+      - Vajra-UI
+  repository_dispatch:
+    types: [run-tests]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: nodejs_users
+          POSTGRES_USER1: postgres
+          POSTGRES_PASSWORD1: root
+          POSTGRES_DB1: fleet
+
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.TEST_REPO_ACCESS_TOKEN }}
+        submodules: true
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+
+    - name: Install dependencies
+      run: |
+        cd Server
+        npm ci
+
+    - name: Load SQL file
+      working-directory: ./Server/src/sql
+      run: |
+          ls -l
+          PGPASSWORD=root psql -h localhost -U postgres -c "CREATE DATABASE fleet;"
+          PGPASSWORD=root psql -h localhost -U postgres -c "CREATE ROLE vajra WITH LOGIN SUPERUSER PASSWORD 'admin';"
+          # PGPASSWORD=root psql -h localhost -U postgres -c "CREATE DATABASE t1;"
+          PGPASSWORD=root psql -h localhost -U postgres -d fleet -f ./create_tables.sql
+
+    - name: Wait for PostgreSQL to be ready
+      run: sleep 10
+
+    - name: Build
+      run: |
+          cd Server
+          npm run build
+
+    - name: Install dependencies of Test
+      run: |
+          cd Server/VajraTesting
+          npm ci
+
+    - name: Run tests
+      run: |
+        cd Server
+        npm run start &
+        cd VajraTesting && (npm run test && pkill -P $$ || true)
+
+    - name: Test Report
+      uses: dorny/test-reporter@v1.7.0
+      if: success() || failure()    # run this step even if previous step failed
+      with:
+        name: Mocha Tests            # Name of the check run which will be created
+        path: ./Server/VajraTesting/test-results.json    # Path to test results
+        reporter: 'mocha-json'
+        fail-on-error: 'true'
+
+    permissions:
+      id-token: write
+      contents: read
+      checks: write

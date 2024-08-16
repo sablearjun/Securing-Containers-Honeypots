@@ -1,0 +1,247 @@
+{% extends "boiler.html" %}
+{%load static%}
+{%load capthename%}
+
+{%block title%}Config{%endblock title%}
+
+{%block style%}
+<style>
+    .renderjson a {
+        text-decoration: none;
+    }
+
+    .renderjson .disclosure {
+        color: crimson;
+        font-size: 150%;
+    }
+
+    .renderjson .syntax {
+        color: grey;
+    }
+
+    .renderjson .string {
+        color: #55BB72;
+    }
+
+    .renderjson .number {
+        color: #F6D55C;
+    }
+
+    .renderjson .boolean {
+        color: #E9185F;
+    }
+
+    .renderjson .key {
+        color: white;
+    }
+
+    .renderjson .keyword {
+        color: #75D2FC;
+    }
+
+    .renderjson .object.syntax {
+        color: lightseagreen;
+    }
+
+    .renderjson .array.syntax {
+        color: orange;
+    }
+</style>
+{%endblock style%}
+
+
+{%block alert%}
+{%if alert%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{alert}}</strong>
+                </div>
+{%endif%}
+{%endblock alert%}
+
+
+<!-- **************************************************************************************************************
+                                    Nav Bar Start
+************************************************************************************************************** -->
+
+{%block stats%}{%endblock stats%}                   {%block stats_link%}    inactive    {%endblock stats_link%}
+
+{%block home%}{%endblock home%}               {%block home_link%} inactive  {%endblock home_link%}
+
+{%block events%}{%endblock events%}                 {%block events_link%}   inactive    {%endblock events_link%}
+
+{%block config%}active{%endblock config%}                 {%block config_link%}   active    {%endblock config_link%}
+
+{%block blocklist%}{%endblock blocklist%}           {%block blocklist_link%}    inactive    {%endblock blocklist_link%}
+
+{%block addhawk%}{%endblock addhawk%}               {%block addhawk_link%}  inactive    {%endblock addhawk_link%}
+
+<!-- **************************************************************************************************************
+                                        Nav Bar End
+************************************************************************************************************** -->
+
+
+{%block body%}
+    <div class="row">
+        <div class="col">
+            <div id="header"
+                style="background-image: linear-gradient(45deg, #ef422a, #ffffff);background-size: 100%;-webkit-background-clip: text;-moz-background-clip: text;-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent;width: 200.2px;">
+                <p
+                    style="color: rgb(255,255,255);font-family: Poppins, sans-serif;font-size: 35px;text-align: left;font-weight: 700;margin-bottom: 0;width: 900.2px;">
+                    Config</p>
+            </div>
+            <p style="color: #494d55;font-family: Poppins, sans-serif;width: 900.2px;">Set Query
+                Configuration</p>
+        </div>
+    </div>
+    <div class="col-md-12" style="padding: 0;">
+        <div class="d-flex flex-row-reverse bd-highlight" style="color: #BB422A">
+            <div class="col-lg-1">
+                <a class="btn btn-lg" href="/addcon"
+                    style="color: #ffffff;width: 169px;height: 57px;border-radius: 25px;outline: none;background: rgba(255,255,255,0);border-color: #ffc106;">Add&nbsp;&nbsp;&nbsp;<i
+                        class="fas fa-tools"></i></a>
+            </div>
+        </div>
+        {% if configlist %}
+        <div class="row config-table" style="position: absolute;width: 85vw;">
+            <!--config-table-->
+            <div class="col">
+                <div style="margin-top: 15px;color: rgb(33, 37, 41);">
+                    <div class="col" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead style="color: #FC462E">
+                                    <tr>
+                                        <th style="text-align: center;border-right-style: none;">Id</th>
+                                        <th style="text-align: center;">Config No</th>
+                                        <th style="text-align: center;">Config Name</th>
+                                        <th style="text-align: center;">Query</th>
+                                        <th style="text-align: center;">Edit<br></th>
+                                        <th style="text-align: center;">Delete<br></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for i in configlist%}
+                                    <tr>
+                                        <td style="text-align: center;">{{forloop.counter}}</td>
+                                        <td style="text-align: center;">{{i.id}}</td>
+                                        <td style="text-align: center;">{{i.query_name}}</td>
+                                        <input type="checkbox" id="querydata_{{i.id}}" value="{{i.query}}"
+                                            style="width: 30px;height: 30px;display: none;" checked>
+                                        <td id="query_{{i.id}}"></td>
+                                        <script>
+                                            data = JSON.parse(document.getElementById('querydata_{{i.id}}').value);
+                                            document.getElementById("query_{{i.id}}").appendChild(
+                                                renderjson.set_icons('+', '-').set_show_to_level(2)(data)
+                                            );
+                                        </script>
+                                        <td style="text-align: center;">
+                                            <form action="/upcon_view/" method="get">
+                                                <input type="checkbox" name="id" id="id" value={{i.id}}
+                                                    style="display: none;" checked>
+                                                <button type="submit"
+                                                    style="background-color: transparent;border: none;color: white;"><i
+                                                        class="fas fa-feather-alt"></i></button>
+                                            </form>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" style="background-color: transparent;border: none;color: white;" data-toggle="modal" data-target="#modelId{{i.id}}">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modelId{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" style="color: black;">Delete configuration</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                        </div>
+                                                        <div class="modal-body" style="color: #E9185F;">
+                                                            Delete configuration with Config Id {{i.id}}
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <form action="/delcon/" method="get">
+                                                                <input type="checkbox" name="id" id="id" value={{i.id}}
+                                                                    style="display: none;" checked>
+                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%else%}
+    <div id="truck">
+
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 200 82.7" style="enable-background:new 0 0 200 82.7;"
+            xml:space="preserve">
+
+            <g id="Calque_1">
+                <text id="XMLID_3_" transform="matrix(1.2187 0 0 1 13 75.6393)" class="st0 st1">4</text>
+                <text id="XMLID_4_" transform="matrix(1.2187 0 0 1 133.0003 73.6393)"
+                    class="st0 st1">4</text>
+            </g>
+            <g id="Calque_2">
+                <g>
+                    <path id="XMLID_11_" d="M81.8,29.2c4.1-5.7,10.7-9.4,18.3-9.4c6.3,0,12.1,2.7,16.1,6.9c0.6-0.4,1.1-0.7,1.7-1.1
+            c-4.4-4.8-10.8-7.9-17.8-7.9c-8.3,0-15.6,4.2-20,10.6C80.7,28.5,81.3,28.8,81.8,29.2z" />
+                    <path id="XMLID_2_" d="M118.1,53.7c-4,5.7-10.7,9.5-18.2,9.5c-6.3,0-12.1-2.6-16.2-6.8c-0.6,0.4-1.1,0.7-1.7,1.1
+            c4.4,4.8,10.8,7.8,17.9,7.8c8.3,0,15.6-4.3,19.9-10.7C119.2,54.5,118.6,54.1,118.1,53.7z" />
+                    <animateTransform attributeName="transform" type="rotate" from="360 100 41.3"
+                        to="0 100 41.3" dur="10s" repeatCount="indefinite" />
+                </g>
+                <g id="XMLID_6_">
+                    <g id="XMLID_18_">
+
+
+
+                        <circle class="circle" cx="100" cy="41" r="1"></circle>
+                    </g>
+                </g>
+                <defs>
+                    <filter id="blurFilter4" x="-20" y="-20" width="200" height="200">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                    </filter>
+                </defs>
+                <path id="XMLID_5_" class="st2" d="M103.8,16.7c0.1,0.3,0.1,0.6,0.1,0.9c11.6,1.9,20.4,11.9,20.4,24.1c0,13.5-10.9,24.4-24.4,24.4
+      S75.6,55.1,75.6,41.7c0-3.2,0.6-6.3,1.7-9.1c-0.3-0.2-0.5-0.3-0.7-0.5c-1.2,3-1.9,6.2-1.9,9.6c0,14,11.3,25.3,25.3,25.3
+      s25.3-11.3,25.3-25.3C125.3,29,115.9,18.5,103.8,16.7z" />
+
+
+            </g>
+        </svg>
+
+        <div class="message">
+            No Config added yet ..
+        </div>
+    </div>
+    {%endif%}
+</div>
+</div>
+{%endblock body%}
+
+
+{%block script%}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+{%endblock script%}

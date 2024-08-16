@@ -1,0 +1,294 @@
+{% extends "boiler.html" %}
+{%load static%}
+{%load capthename%}
+
+{%block title%}Statistics{%endblock title%}
+
+<!-- **************************************************************************************************************
+                                    Nav Bar Start
+************************************************************************************************************** -->
+
+{%block stats%}active{%endblock stats%} {%block stats_link%} active {%endblock stats_link%}
+
+{%block home%}{%endblock home%} {%block home_link%} inactive {%endblock home_link%}
+
+{%block events%}{%endblock events%} {%block events_link%} inactive {%endblock events_link%}
+
+{%block config%}{%endblock config%} {%block config_link%} inactive {%endblock config_link%}
+
+{%block blocklist%}{%endblock blocklist%} {%block blocklist_link%} inactive {%endblock blocklist_link%}
+
+{%block addhawk%}{%endblock addhawk%} {%block addhawk_link%} inactive {%endblock addhawk_link%}
+
+<!-- **************************************************************************************************************
+                                        Nav Bar End
+************************************************************************************************************** -->
+
+{%block body%}
+<div class="row">
+    <div class="col">
+        <div id="header"
+            style="background-image: linear-gradient(45deg, #ef422a, #ffffff);background-size: 100%;-webkit-background-clip: text;-moz-background-clip: text;-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent;width: 200.2px;">
+            <p
+                style="color: rgb(255,255,255);font-family: Poppins, sans-serif;font-size: 35px;text-align: left;font-weight: 700;margin-bottom: 0;width: 900.2px;">
+                Statistics
+            </p>
+        </div>
+        <p style="color: #494d55;font-family: Poppins, sans-serif;width: 900.2px;">Get Quick Statistics
+            of the Nodes</p>
+    </div>
+</div>
+<div class="row" style="height: 60%;">
+    <div class="col-3">
+        <div class="card" style="margin-top: 10px;height: 80%;background: rgb(49,52,59);border-radius: 25px;box-shadow: -30px 26px 36px -10px rgba(0,0,0,1);
+            -webkit-box-shadow: -30px 26px 36px -10px rgba(0,0,0,1);
+            -moz-box-shadow: -30px 26px 36px -10px rgba(0,0,0,1)">
+            <div class="row" style="margin-top: 5%;">
+                <div class="col-xl-4" style="display: flex;justify-content: flex-end;">
+                    <i class="fas fa-hdd" style="font-size: 35px;color: #ECAF06;"></i>
+                </div>
+                <div class="col-xl-8" style="display: flex;justify-content: start;">
+                    <p style="font-size: 23px;color: aliceblue;">Nodes Statistics</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="display: flex;justify-content: center;">
+                    <p id="count" style="font-size: 5em;color: #6d6d6d;"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="display: flex;justify-content: center;">
+                    <p style="color: #0eec06;;font-size: 20px;text-shadow:     0 0 7px,0 0 42px #0fa">
+                        Online</p>
+                </div>
+                <div class="col" style="display: flex;justify-content: center;">
+                    <p style="color: #ec0606;font-size: 20px;text-shadow:     0 0 7px,0 0 42px rgb(255, 8, 0)">
+                        Offline</p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 20%;">
+                <div class="col" style="display: flex;justify-content: center;">
+                    <p id="online" style="font-size: 2em;color: #979797;"></p>
+                </div>
+                <div class="col" style="display: flex;justify-content: center;">
+                    <p id="offline" style="font-size: 2em;color: #979797;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-7">
+        <div class="card" style="margin-top: 10px;height: 80%;background: rgb(49,52,59);border-radius: 25px;box-shadow: -30px 26px 36px -10px rgba(0,0,0,1);
+            -webkit-box-shadow: -30px 26px 36px -10px rgba(0,0,0,1);
+            -moz-box-shadow: -30px 26px 36px -10px rgba(0,0,0,1);overflow: hidden;">
+            <div class="row" style="color: white;">
+                <div class="col-7">
+                    <div class="row" style="display: flex;justify-content: space-around;background-color: #21242B;border: none;height: 4em;align-items: center;border-bottom-right-radius: 25px;">
+                        <div class="col-4" style="display: flex;justify-content: space-around;">
+                            <div class="dropdown open">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="severityDropdown" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                            Severity
+                                        </button>
+                                <div class="dropdown-menu" style="background-color: #494d55;" aria-labelledby="severityDropdown">
+                                    <button class="dropdown-item" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span style="color: #36CCFC;">None</span></button>
+                                    <button class="dropdown-item collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span style="color: #5DEE3B;">Information</span></button>
+                                    <button class="dropdown-item collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span style="color: #FCE552;">Low</span></button>
+                                    <button class="dropdown-item collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour"><span style="color: #FEB032;">Medium</span></button>
+                                    <button class="dropdown-item collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive"><span style="color: #FD393F;">High</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <form action="/stats/" id="severityStats" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="order" id="order" value="desc">
+                                <input type="hidden" name="result" id="result" value="1">
+                            </form>
+                            <div class="dropdown open">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="orderDropdown" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Order</button>
+                                <div class="dropdown-menu" style="background-color: #494d55;" aria-labelledby="orderDropdown">
+                                    <button class="dropdown-item" onclick="drop_to_Form('order','asc')">Ascending</button>
+                                    <button class="dropdown-item" onclick="drop_to_Form('order','desc')">Descending</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="dropdown open">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="resultDropdown" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                            No. of Results
+                                        </button>
+                                <div class="dropdown-menu" style="background-color: #494d55;" aria-labelledby="resultDropdown">
+                                    <button class="dropdown-item" onclick="drop_to_Form('result',1)">1</button>
+                                    <button class="dropdown-item" onclick="drop_to_Form('result',2)">2</button>
+                                    <button class="dropdown-item" onclick="drop_to_Form('result',3)">3</button>
+                                    <button class="dropdown-item" onclick="drop_to_Form('result',4)">4</button>
+                                    <button class="dropdown-item" onclick="drop_to_Form('result',5)">5</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5%;">
+                        <div class="col">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card-dark">
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {%for i,j in database.0.items%}
+                                        <div class="row" style="margin-bottom: 4%;">
+                                            <div class="col-9">{{i}}&nbsp;&nbsp;&nbsp;:</div>
+                                            <div class="col-3" style="padding: 0;margin: 0;">{{j}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dark">
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {%for i,j in database.1.items%}
+                                        <div class="row" style="margin-bottom: 4%;">
+                                            <div class="col-9">{{i}}&nbsp;&nbsp;&nbsp;:</div>
+                                            <div class="col-3" style="padding: 0;margin: 0;">{{j}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dark">
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {%for i,j in database.2.items%}
+                                        <div class="row" style="margin-bottom: 4%;">
+                                            <div class="col-9">{{i}}&nbsp;&nbsp;&nbsp;:</div>
+                                            <div class="col-3" style="padding: 0;margin: 0;">{{j}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dark">
+                                <div id="collapsefour" class="collapse" aria-labelledby="headingfour"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {%for i,j in database.3.items%}
+                                        <div class="row" style="margin-bottom: 4%;">
+                                            <div class="col-9">{{i}}&nbsp;&nbsp;&nbsp;:</div>
+                                            <div class="col-3" style="padding: 0;margin: 0;">{{j}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dark">
+                                <div id="collapsefive" class="collapse" aria-labelledby="headingfive"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {%for i,j in database.4.items%}
+                                        <div class="row" style="margin-bottom: 4%;">
+                                            <div class="col-9">{{i}}&nbsp;&nbsp;&nbsp;:</div>
+                                            <div class="col-3" style="padding: 0;margin: 0;">{{j}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <!-- <div class="col-xl-7">
+            <canvas id="myChart"></canvas>
+        </div> -->
+</div>
+<!-- containt goes here  -->
+</div>
+</div>
+{%endblock body%}
+
+
+{%block script%}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<script>
+    var ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["None", "Information", "Low", "Medium", "High"],
+            datasets: [{
+                data: {{ severity }},
+        barThickness: 30,
+        backgroundColor: [
+            "#36CCFC",
+            "#5DEE3B",
+            "#FCE552",
+            "#FEB032",
+            "#FD393F",
+        ]
+    }
+            ]
+        },
+        options: {
+        responsive: false,
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                text: 'Severity Levels',
+                color: '#949494',
+                fullSize: true,
+                font: { size: 20 }
+            }
+        },
+        interaction: {
+            intersect: false,
+        },
+    },
+    });
+</script>
+<script>
+    var count = document.getElementById('count');
+    var off = document.getElementById('offline');
+    var on = document.getElementById('online');
+    setInterval(function () {
+        axios.get('/statistics/').then(resp => {
+            let data=resp.data;
+            count.innerHTML = data["count"];
+            off.innerHTML = data["off"];
+            on.innerHTML = data["on"];
+        });
+    }, 1000);
+</script>
+<script>
+    if(localStorage.getItem('order') && localStorage.getItem('result'))
+    {
+        document.getElementById('order').value=localStorage.getItem('order');
+        document.getElementById('result').value=localStorage.getItem('result');
+    }
+    function drop_to_Form(linkId,val) {
+        document.getElementById(linkId).value=val;
+        localStorage.setItem('order',document.getElementById('order').value)
+        localStorage.setItem('result',document.getElementById('result').value)
+        document.getElementById("severityStats").submit();
+    }
+</script>
+{%endblock script%}

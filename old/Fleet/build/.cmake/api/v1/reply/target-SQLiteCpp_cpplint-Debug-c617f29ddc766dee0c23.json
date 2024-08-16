@@ -1,0 +1,66 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"3rdparty/SQLiteCpp/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 338,
+				"parent" : 0
+			}
+		]
+	},
+	"id" : "SQLiteCpp_cpplint::@aa0067eaa3d27d3f4df8",
+	"name" : "SQLiteCpp_cpplint",
+	"paths" : 
+	{
+		"build" : "3rdparty/SQLiteCpp",
+		"source" : "3rdparty/SQLiteCpp"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp_cpplint",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp_cpplint.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

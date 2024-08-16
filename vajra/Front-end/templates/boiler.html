@@ -1,0 +1,133 @@
+{%load static%}
+{%load capthename%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{%endblock title%}</title>
+    <link rel="stylesheet" href="{%static  'assets/css/animate.min.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Poppins.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navigation-Clean.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/json.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}"> -->
+    <link rel="stylesheet" href="{%static 'assets/css/page404.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/button.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/simplepicker.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/ag-grid.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/ag-theme-alpine-dark.css'%}">
+    <script type="text/javascript" src="{%static 'assets/js/renderjson.js'%}"></script>
+    {%block style%}{%endblock style%}
+    {%block scripts%}{%endblock scripts%}
+</head>
+
+<body>
+    {%block alert%}{%endblock alert%}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1" id="sidebar">
+                <div class="col-lg-1"><a href="/home">
+                        <div class="sidebar-link {%block home%}{%endblock home%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Home">
+                                <i class="fas fa-home {%block home_link%}{%endblock home_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-1"><a href="/stats">
+                        <div class="sidebar-link {%block stats%}{%endblock stats%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Stats">
+                                <i class="fas fa-chart-line {%block stats_link%}{%endblock stats_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-1"><a href="/events">
+                        <div class="sidebar-link {%block events%}{%endblock events%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Events">
+                                <i class="fas fa-fingerprint {%block events_link%}{%endblock events_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-1"><a href="/config">
+                        <div class="sidebar-link {%block config%}{%endblock config%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Config">
+                                <i class="fas fa-laptop-code {%block config_link%}{%endblock config_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-1"><a href="/blocklist">
+                        <div class="sidebar-link {%block blocklist%}{%endblock blocklist%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Blocklist">
+                                <i class="fas fa-bug {%block blocklist_link%}{%endblock blocklist_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-1"><a href="/addhawk_page">
+                        <div class="sidebar-link {%block addhawk%}{%endblock addhawk%}">
+                            <div class="sidebar-icon" data-toggle="tooltip" data-placement="right" title="Addhoc">
+                                <i class="fas fa-project-diagram {%block addhawk_link%}{%endblock addhawk_link%}"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10 web-body">
+                <div class="row">
+                    <div class="col" style="padding: 0px;text-align: right;">
+                        <div class="card" style="background: rgba(255,255,255,0);padding-top: 15px;border-width: 0px;">
+                            <div class="card-body" style="margin: 0px;padding: 0px;">
+                                <h4 class="card-title" style="color: var(--red);font-family: Poppins, sans-serif;">
+                                    <img src="{% static 'assets/img/ico.jpg'%}"
+                                        style="height: 45px;border-radius: 50px;width: 45px;border: solid 2px white;">
+                                    <span style="margin-left: -0.9%;">
+                                        <img src="{% static 'assets/img/green_dot.jpg'%}"
+                                            style="height: 12px;border-radius: 50px;width: 12px;border: solid 2px white;position: absolute;top: 60%;">
+                                    </span>
+                                    <span style="margin-left: 2%;">
+                                        <span>|</span>
+                                    </span>
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary dropdown-toggle" style="background-color: transparent;border: 0px;font-size: large;" type="button" id="logoutMenu" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                {{ request.user | capit }}
+                                        </button>
+                                        <div class="dropdown-menu"aria-labelledby="logoutMenu">
+                                            {% if user.is_superuser %}
+                                            <a class="dropdown-item" href="/admin">Admin Panel</a>
+                                            {% endif %}
+                                            <a class="dropdown-item" href="/logoutuser">Logout</a>
+                                            <!-- <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">After divider action</a> -->
+                                        </div>
+                                    </div>
+                                    <!-- <a href="/logoutuser"
+                                        style="font-size: 20px;color: #F2F2F2;margin-left: 1%;font-weight: 700;">
+                                        {{ request.user | capit }}
+                                    </a> -->
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%block body%}{%endblock body%}
+            </div>
+
+            <script src="{%static 'assets/js/jquery.min.js'%}"></script>
+            <script src="{%static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+            <script src="{%static 'assets/js/bs-init.js'%}"></script>
+            <script src="{%static 'assets/js/ag-grid-community.min.js'%}"></script>
+            <script src="{%static 'assets/js/chart.js'%}"></script>
+            {%block script%}{%endblock script%}
+</body>
+
+</html>

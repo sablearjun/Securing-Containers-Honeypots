@@ -1,0 +1,25 @@
+.idea/
+.vscode/
+.DS_Store
+
+node_modules/
+build/
+dist/
+tmp/
+temp/
+
+database/*
+!database/.gitkeep
+
+log/*
+!log/.gitkeep
+*.log
+
+*.csv
+!file$1696324760249$test$t1.csv
+
+*.yar
+!file$1700047930604$gaurishewale$windows$test.yar
+# keep config folder with env files ONLY for demo purposes
+# config/
+# .env

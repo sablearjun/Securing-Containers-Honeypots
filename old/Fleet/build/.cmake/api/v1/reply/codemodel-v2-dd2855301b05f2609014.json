@@ -1,0 +1,296 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						12,
+						14
+					]
+				},
+				{
+					"build" : "common",
+					"jsonFile" : "directory-common-Debug-6a5c22a1ee7f2aca6d8e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "common",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "3rdparty/jwtpp",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-3rdparty.jwtpp-Debug-81d57f9f55da792066b1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "3rdparty/jwtpp",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "3rdparty/SQLiteCpp",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-3rdparty.SQLiteCpp-Debug-40ba4313b8b2575f0ed6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "3rdparty/SQLiteCpp",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "3rdparty/SQLiteCpp/sqlite3",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-3rdparty.SQLiteCpp.sqlite3-Debug-72568ea1199923cf10e6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 3,
+					"source" : "3rdparty/SQLiteCpp/sqlite3",
+					"targetIndexes" : 
+					[
+						13
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "fleet",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						12,
+						14
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "fleetsdk",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "jwtpp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3,
+						4
+					],
+					"name" : "SQLiteCpp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						13
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "SQLiteCpp::@aa0067eaa3d27d3f4df8",
+					"jsonFile" : "target-SQLiteCpp-Debug-d4f5a3eeb10f93e9bbdb.json",
+					"name" : "SQLiteCpp",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "SQLiteCpp_cpplint::@aa0067eaa3d27d3f4df8",
+					"jsonFile" : "target-SQLiteCpp_cpplint-Debug-c617f29ddc766dee0c23.json",
+					"name" : "SQLiteCpp_cpplint",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "correlation_engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-correlation_engine-Debug-d995a5d21ffaf30d01ab.json",
+					"name" : "correlation_engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "event_processor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-event_processor-Debug-9474ab23bf3f490ac60d.json",
+					"name" : "event_processor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "event_rules::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-event_rules-Debug-bfa0285cdbe8950ebcda.json",
+					"name" : "event_rules",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fleet_server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fleet_server-Debug-c3fcfcf71ade9dbe254a.json",
+					"name" : "fleet_server",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fleetagent::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fleetagent-Debug-badce315cc265ca01855.json",
+					"name" : "fleetagent",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fleetagenthook::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fleetagenthook-Debug-d48daeb0b8494bf7e051.json",
+					"name" : "fleetagenthook",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fleetapi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fleetapi-Debug-51faee4b1ae919981043.json",
+					"name" : "fleetapi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fleetrules::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fleetrules-Debug-ffeb902c7309d7b9b6d3.json",
+					"name" : "fleetrules",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "fleetsdk::@bfc844598bd03e848b3c",
+					"jsonFile" : "target-fleetsdk-Debug-caab4e2998d10798b946.json",
+					"name" : "fleetsdk",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "jwtpp-static::@316619a0f4281a95c421",
+					"jsonFile" : "target-jwtpp-static-Debug-cf5f2f1ae76e171e376e.json",
+					"name" : "jwtpp-static",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rule_engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rule_engine-Debug-07dc87d9b3457871a109.json",
+					"name" : "rule_engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "sqlite3::@459275db601c79159cdd",
+					"jsonFile" : "target-sqlite3-Debug-1415577b85f16f0d8741.json",
+					"name" : "sqlite3",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "userctl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-userctl-Debug-14314f48c5988f901df1.json",
+					"name" : "userctl",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+		"source" : "/home/yogesh/Documents/Container Research/vajra-fleet"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

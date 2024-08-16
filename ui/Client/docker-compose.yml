@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: vajra-frontend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # volumes:
+    #   - ./certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      # - "443:443"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

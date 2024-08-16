@@ -1,0 +1,11 @@
+requests==2.27.0
+colorama==0.4.4
+knox==0.1.14
+django-rest-knox
+djangorestframework
+cryptography
+Jinja2
+boto3
+django-cors-headers
+django-simple-history
+Rx

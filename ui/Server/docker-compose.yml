@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nodejs_server:
+    container_name: vajra-backend-nodejs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

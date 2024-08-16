@@ -1,0 +1,109 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"3rdparty/SQLiteCpp/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 309,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 314,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 315,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 326,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "libraries",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"3rdparty/SQLiteCpp/libSQLiteCpp.a"
+			],
+			"targetId" : "SQLiteCpp::@aa0067eaa3d27d3f4df8",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "headers",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "3rdparty/SQLiteCpp/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SQLiteCpp",
+			"exportName" : "SQLiteCppTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sqlite3::@459275db601c79159cdd",
+					"index" : 13
+				},
+				{
+					"id" : "SQLiteCpp::@aa0067eaa3d27d3f4df8",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"3rdparty/SQLiteCpp/CMakeFiles/Export/lib/cmake/SQLiteCpp/SQLiteCppTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SQLiteCpp",
+			"paths" : 
+			[
+				"build/3rdparty/SQLiteCpp/cmake/SQLiteCppConfig.cmake",
+				"build/3rdparty/SQLiteCpp/cmake/SQLiteCppConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "3rdparty/SQLiteCpp",
+		"source" : "3rdparty/SQLiteCpp"
+	}
+}

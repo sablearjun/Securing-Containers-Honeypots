@@ -1,0 +1,784 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add Config</title>
+    <link rel="stylesheet" href="{%static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Poppins.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Features-Clean.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Navigation-Clean.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Social-Icons.css'%}">
+    <!-- <link rel="stylesheet" href="{%static 'assets/css/styles.css'%}"> -->
+    <link rel="stylesheet" href="{%static 'assets/css/button.css'%}">
+</head>
+
+<body style="background: #21242b;font-family: Poppins, sans-serif;">
+    {%if alert%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div style="display: flex;justify-content: center;">
+            <strong>{{alert}}</strong>
+        </div>
+    </div>
+    {%endif%}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1" id="sidebar">
+                <div class="container"
+                    style="height: 818px;width: 109px;margin: 0;padding: 0;text-align: center;padding-top: 20px;">
+                    <div class="text-center"
+                        style="margin-top: 60px;padding: 41px 0px 23px;padding-top: 10px;text-align: center;"><a
+                            href="/config">
+                            <div
+                                style="height: 50px;padding: 0;border-width: 0;border-left-style: solid;border-left-color: #ef422a;">
+                                <div
+                                    style="height: 57px;width: 70px;margin-left: 26px;padding: 17px;background: rgba(17,18,22,0);text-align: center;border-radius: 0px;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+                                    <i class="fas fa-arrow-left" style="font-size: 20px;color: #ef422a;"></i>
+                                </div>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+            <div class="col-lg-11 web-body">
+                <div class="container" style="margin-top: 2%;">
+                    <form action="/addcon/" method="post" autocomplete="off">
+                        {% csrf_token %}
+                        <section class="features-clean" style="background: #31343b;border-radius: 25px;">
+                            <div class="container Host_identifier">
+                                <div class="intro">
+                                    <h2 class="text-center" style="color: rgb(255,255,255);">Add&nbsp;Config&nbsp;</h2>
+                                    <p class="text-center">Edit configuration query fields for a custom query</p>
+                                    <span class="text-center" style="color: #787D80;">Config
+                                        Name&nbsp;&nbsp;&nbsp;</span><input type="text" name="config_name" style="outline: none;"
+                                        id="config_name" required>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Pro_Events">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;background: #21242b;height: 50px;width: 30%;text-align: center;border-top-right-radius: 0px;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn1()" style="cursor: pointer;">Process
+                                                Events&nbsp;</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="row" style="color: aliceblue;display: none;" id="Pro_events">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-sm-3 d-flex"
+                                                style="justify-content: center;align-items: center;">
+                                                <h5>Interval</h5>
+                                            </div>
+                                            <input type="checkbox" name="pro_events" id="pro_events" value="true"
+                                                style="width: 30px;height: 30px;display: none;">
+                                            <div class="col-sm-5">
+                                                <input type="tel" id="interval1" name="interval1" placeholder="10-100"
+                                                    pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Pro_File_Events">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn2()" style="cursor: pointer;">Process File
+                                                Events</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Pro_file_events">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" name="pro_file_events" value="true" id="pro_file_events"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval2" name="interval2" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Pro_List">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn3()" style="cursor: pointer;">Process List</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Pro_list">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval3" name="interval3" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="pro_list" value="true" id="pro_list"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap" id="snap" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Soc_Events">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn4()" style="cursor: pointer;">Socket Events</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Soc_events">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" name="soc_events" value="true" id="soc_events"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval4" name="interval4" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Usr_Events">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn5()" style="cursor: pointer;">User Events</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Usr_events">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" name="usr_events" value="true" id="usr_events"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval5" name="interval5" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Process_Open_Pipes">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn6()" style="cursor: pointer;">Process Open
+                                                Pipes</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Process_open_pipes">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval6" name="interval6" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="process_open_pipes" value="true"
+                                            id="process_open_pipes" style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap1" id="snap1" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Process_Open_Files">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn7()" style="cursor: pointer;">Process Open
+                                                Files</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Process_open_files">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval7" name="interval7" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="process_open_files" value="true"
+                                            id="process_open_files" style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap2" id="snap2" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Listening_Ports">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn8()" style="cursor: pointer;">Listening
+                                                Ports</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Listening_ports">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval8" name="interval8" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="listening_ports" value="true" id="listening_ports"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap3" id="snap3" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;" id="RouteS">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn9()" style="cursor: pointer;">Routes</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Routes">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval9" name="interval9" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="routes" value="true" id="routes"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap4" id="snap4" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Logged_In_Users">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn10()" style="cursor: pointer;">Logged In
+                                                Users</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Logged_in_users">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval10" name="interval10" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="logged_in_users" value="true" id="logged_in_users"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap5" id="snap5" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Arp_Cache">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn11()" style="cursor: pointer;">Arp Cache</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Arp_cache">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval11" name="interval11" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="arp_cache" value="true" id="arp_cache"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap6" id="snap6" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Suid_Bin">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn12()" style="cursor: pointer;">Suid Bin</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Suid_bin">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval12" name="interval12" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="suid_bin" value="true" id="suid_bin"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap7" id="snap7" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Process_Open_Sockets">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn13()" style="cursor: pointer;">Process Open
+                                                Sockets</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Process_open_sockets">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval13" name="interval13" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="process_open_sockets" value="true"
+                                            id="process_open_sockets" style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap8" id="snap8" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;" id="UserS">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn14()" style="cursor: pointer;">Users</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Users">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval14" name="interval14" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="users" value="true" id="users"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap9" id="snap9" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;" id="GroupS">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn15()" style="cursor: pointer;">Groups</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Groups">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval15" name="interval15" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="groups" value="true" id="groups"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap10" id="snap10" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Process_Envs">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn16()" style="cursor: pointer;">Process Envs</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Process_envs">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval16" name="interval16" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2%;">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Snapshot</h5>
+                                        </div>
+                                        <input type="checkbox" name="process_envs" value="true" id="process_envs"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <select name="snap11" id="snap11" style="cursor: pointer;">
+                                                <option value="true" selected>True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Memory_Info">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn17()" style="cursor: pointer;">Memory Info</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Memory_info">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" name="memory_info" value="true" id="memory_info"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval17" name="interval17" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="features-clean"
+                            style="background: transparent;border-radius: 25px;margin-top: 2%;height: 0px;"
+                            id="Cpu_Time">
+                            <div class="container Host_identifier" style="padding-left: 0px;">
+                                <div class="row features" style="margin-left: 20px;">
+                                    <div class="col" style="padding-left: 0px;">
+                                        <h1
+                                            style="color: rgb(137,137,137);font-size: 25px;width: 30%;background: #21242b;height: 50px;text-align: center;border-bottom-left-radius: 50px;border-bottom-right-radius: 50px;">
+                                            <strong onclick="btn18()" style="cursor: pointer;">Cpu Time</strong><br>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="color: aliceblue;display: none;" id="Cpu_time">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-3 d-flex"
+                                            style="justify-content: center;align-items: center;">
+                                            <h5>Interval</h5>
+                                        </div>
+                                        <input type="checkbox" name="cpu_time" value="true" id="cpu_time"
+                                            style="width: 30px;height: 30px;display: none;">
+                                        <div class="col-sm-5">
+                                            <input type="tel" id="interval18" name="interval18" placeholder="10-100"
+                                                pattern="[0-9]{2}" style="width: 70px;height: 40px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="text-align: center;margin-top: 4%;margin-bottom: 2%;">
+                            <div class="wrap">
+                                <button class="button">submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'assets/js/config.js'%}"></script>
+    <script src="{%static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{%static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+</body>
+
+</html>

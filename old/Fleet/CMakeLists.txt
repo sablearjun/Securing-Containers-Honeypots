@@ -1,0 +1,71 @@
+cmake_minimum_required(VERSION 3.16)
+project(fleet)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/common)
+add_subdirectory(${PROJECT_SOURCE_DIR}/3rdparty/jwtpp)
+add_subdirectory(${PROJECT_SOURCE_DIR}/3rdparty/SQLiteCpp)
+
+add_executable(event_processor event_processor/main.cpp event_processor/EventProcessor.cpp event_processor/EventProcessor.h)
+target_link_libraries(event_processor -lpthread)
+target_link_libraries(event_processor fleetsdk)
+
+add_executable(rule_engine rule_engine/main.cpp rule_engine/RuleEngine.cpp rule_engine/RuleEngine.h rule_engine/PluginLoader.cpp rule_engine/PluginLoader.h)
+target_link_libraries(rule_engine -ldl)
+target_link_libraries(rule_engine fleetsdk)
+target_link_libraries(rule_engine -lpthread)
+
+add_executable(fleetapi server/api_server.cpp server/WebServer.cpp server/api/nodes.cpp server/api/nodes.h server/api/events.cpp server/api/events.h server/api/config.cpp server/api/config.h server/api/stats.cpp server/api/stats.h server/RequestRouter.cpp server/RequestRouter.h server/http_common.cpp server/http_common.h server/api/scheduled_query.h server/api/scheduled_query.cpp server/api/dashboard.cpp server/api/dashboard.h)
+target_link_libraries(fleetapi -lboost_log_setup)
+target_link_libraries(fleetapi -lboost_log)
+target_link_libraries(fleetapi -lboost_thread)
+target_link_libraries(fleetapi -lboost_system)
+target_link_libraries(fleetapi -lssl)
+target_link_libraries(fleetapi -lcrypto)
+target_link_libraries(fleetapi -lpthread)
+target_link_libraries(fleetapi fleetsdk)
+target_link_libraries(fleetapi jwtpp-static)
+
+add_executable(fleet_server server/fleet_main.cpp server/WebServer.cpp server/request_handler.cpp server/request_handler.h server/RequestRouter.cpp server/RequestRouter.h server/http_common.cpp server/http_common.h)
+target_link_libraries(fleet_server -lboost_log_setup)
+target_link_libraries(fleet_server -lboost_log)
+target_link_libraries(fleet_server -lboost_thread)
+target_link_libraries(fleet_server -lboost_system)
+target_link_libraries(fleet_server -lssl)
+target_link_libraries(fleet_server -lcrypto)
+target_link_libraries(fleet_server -lpthread)
+target_link_libraries(fleet_server fleetsdk)
+
+add_executable(userctl utilities/userctl.cpp)
+target_link_libraries(userctl -lboost_program_options)
+target_link_libraries(userctl fleetsdk)
+target_link_libraries(userctl jwtpp-static)
+
+add_executable(correlation_engine correlation/main.cpp)
+target_link_libraries(correlation_engine -lboost_log_setup)
+target_link_libraries(correlation_engine -lboost_log)
+target_link_libraries(correlation_engine -lboost_thread)
+target_link_libraries(correlation_engine -lboost_system)
+target_link_libraries(correlation_engine -lpthread)
+target_link_libraries(correlation_engine fleetsdk)
+
+if (NOT DEFINED WITHOUT_REMEDIATION)
+    add_executable(fleetagent remediation/main.cpp remediation/FilesystemMonitor.cpp remediation/FilesystemMonitor.h
+            remediation/RemediationService.cpp remediation/RemediationService.h remediation/ThreatSignatureService.cpp
+            remediation/HTTPClient.cpp remediation/HTTPClient.h remediation/PluginLoader.cpp remediation/PluginLoader.h remediation/OsqueryConfig.cpp remediation/OsqueryConfig.h remediation/CommunicationService.cpp)
+    target_link_libraries(fleetagent -lcurl)
+    target_link_libraries(fleetagent SQLiteCpp)
+    target_link_libraries(fleetagent sqlite3)
+    target_link_libraries(fleetagent -lprocps)
+    target_link_libraries(fleetagent -lpthread)
+    target_link_libraries(fleetagent -ldl)
+    target_link_libraries(fleetagent -lssl)
+    target_link_libraries(fleetagent -lcrypto)
+    target_link_libraries(fleetagent fleetsdk)
+
+    add_library(fleetagenthook SHARED remediation/agent_hook/agent_hook.cpp)
+    add_library(fleetrules SHARED remediation/blocking_rules/plugin_main.cpp remediation/blocking_rules/blocking_rules.cpp remediation/blocking_rules/blocking_rules.h)
+endif()
+
+add_library(event_rules SHARED event_rules/plugin_main.cpp event_rules/detection_rules.cpp event_rules/detection_rules.h)

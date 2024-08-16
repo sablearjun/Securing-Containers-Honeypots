@@ -1,0 +1,73 @@
+#ifndef FLEET_WIN_DEFENCE_EVASION_RULES_H
+#define FLEET_WIN_DEFENCE_EVASION_RULES_H
+
+#include "../common/EdrDataTypes.h"
+
+bool BITS_jobs(const ProcessEvent& process_event, Event& rule_event);
+bool escalate_guest(const ProcessEvent &process_event, Event &rule_event);
+bool registry_modification(const ProcessEvent &process_event, Event &rule_event);
+bool indirect_command_execution(const ProcessEvent &process_event, Event &rule_event);
+bool alternate_authentication(const ProcessEvent &process_event, Event &rule_event);
+bool indicator_removal(const ProcessEvent &process_event, Event &rule_event);
+bool disable_powershell_etw(const ProcessEvent &process_event, Event &rule_event);
+bool create_process_with_token(const ProcessEvent &process_event, Event &rule_event);
+bool process_hollowing(const ProcessEvent &process_event, Event &rule_event);
+bool grant_access_to_C(const ProcessEvent &process_event, Event &rule_event);
+bool hide_artifacts(const ProcessEvent &file_event, Event &rule_event);
+bool masquerading (const ProcessEvent &process_event, Event &rule_event);
+bool proxy_execution (const ProcessEvent &process_event, Event &rule_event);
+bool bypass_user_account_control(const ProcessEvent &process_event, Event &rule_event);
+bool xsl_script_processing(const ProcessEvent &process_event, Event &rule_event);
+bool mshta(const ProcessEvent &process_event, Event &rule_event);
+bool system_binary_proxy_execution_regsvr32(const ProcessEvent &process_event, Event &rule_event);
+bool system_binary_proxy_execution_msiexec(const ProcessEvent &process_event, Event &rule_event);
+bool proxy_execution_msbuild(const ProcessEvent &process_event, Event &rule_event);
+bool system_binary_proxy_execution(const ProcessEvent &process_event, Event &rule_event);
+bool system_binary_proxy_execution_rundll32(const ProcessEvent &process_event, Event &rule_event);
+bool dll_side_loading(const ProcessEvent &process_event, Event &rule_event);
+bool ntfs_file_attributes(const ProcessEvent &process_event, Event &rule_event);
+bool clear_command_history(const ProcessEvent &process_event, Event &rule_event);
+bool obfuscated_files_or_information(const ProcessEvent &process_event, Event &rule_event);
+bool process_injection(const ProcessEvent &process_event, Event &rule_event);
+bool indicator_removal_file_deletion(const ProcessEvent &process_event, Event &rule_event);
+bool hidden_window_hide_artifacts(const ProcessEvent &process_event, Event &rule_event);
+bool impair_defenses_disable_modify_tools(const ProcessEvent &process_event, Event &rule_event);
+bool install_root_certificate(const ProcessEvent &process_event, Event &rule_event);
+bool system_binary_proxy_execution_installutil(const ProcessEvent &process_event, Event &rule_event);
+bool decode_files_or_information(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_netwire(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_ursnif(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_terminal_server_client(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_blackbyte(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_load_service_safemode(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_disable_win_registry_tool(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_disable_win_security_notifications(const ProcessEvent &process_event, Event &rule_event);
+bool modify_registry_win_group_policy_feature(const ProcessEvent &process_event, Event &rule_event);
+bool impair_defenses_disable_modify_tools_AMSI_Byspass(const ProcessEvent &process_event, Event &rule_event);
+bool impair_defenses_disable_modify_tools_office_security(const ProcessEvent &process_event, Event &rule_event);
+bool impair_defenses_disable_defender_firewall(const ProcessEvent &process_event, Event &rule_event);
+bool user_scope_cor_profile(const ProcessEvent &process_event, Event &rule_event);
+bool hide_artifacts_through_registry(const ProcessEvent &process_event, Event &rule_event);
+bool impair_defenses_tamper_win_defender(const ProcessEvent &process_event, Event &rule_event);
+bool install_root_certificate_win_certutil(const ProcessEvent &process_event, Event &rule_event);
+bool indicator_removal_del_single_file(const ProcessEvent &process_event, Event &rule_event);
+bool powerShell_downgrade_attack(const ProcessEvent &process_event, Event &rule_event);
+bool tamper_windows_defender(const ProcessEvent &process_event, Event &rule_event);
+bool AMSI_bypass_pattern_assembly_getType(const ProcessEvent &process_event, Event &rule_event);
+bool powershell_detect_virtualization_environment(const ProcessEvent &process_event, Event &rule_event);
+bool disable_WindowsOptionalFeature_command_powershell(const ProcessEvent &process_event, Event &rule_event);
+bool NTFS_alternate_data_stream(const ProcessEvent &process_event, Event &rule_event);
+bool suspicious_invoke_item_from_mount_diskImage(const ProcessEvent &process_event, Event &rule_event);
+bool powershell_store_file_in_alternate_data_stream(const ProcessEvent& process_event, Event& rule_event);
+bool potential_powershell_obfuscation_using_character_join(const ProcessEvent& process_event, Event& rule_event);
+bool suspicious_eventlog_clear(const ProcessEvent& process_event, Event& rule_event);
+bool suspicious_hyper_v_cmdlets(const ProcessEvent& process_event, Event& rule_event);
+bool suspicious_io_fileStream(const ProcessEvent& process_event, Event& rule_event);
+bool powershell_deleted_mounted_share(const ProcessEvent& process_event, Event& rule_event);
+bool suspicious_unblock_file(const ProcessEvent& process_event, Event& rule_event);
+bool suspicious_powershell_windowStyle_option(const ProcessEvent& process_event, Event& rule_event);
+bool tamper_windows_defender_ScriptBlockLogging(const ProcessEvent& process_event, Event& rule_event);
+bool powershell_timestomp(const ProcessEvent& process_event, Event& rule_event);
+bool powershell_WMI_Win32_product_install_MSI(const ProcessEvent& process_event, Event& rule_event);
+bool windows_firewall_profile_disabled(const ProcessEvent& process_event, Event& rule_event);
+#endif // FLEET_WIN_DEFENCE_EVASION_RULES_H

@@ -1,0 +1,302 @@
+[
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/fleet_server.dir/server/fleet_main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/fleet_main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/fleet_main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/fleet_server.dir/server/WebServer.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/WebServer.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/WebServer.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/fleet_server.dir/server/request_handler.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/request_handler.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/request_handler.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/fleet_server.dir/server/RequestRouter.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/RequestRouter.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/RequestRouter.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/fleet_server.dir/server/http_common.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/http_common.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/http_common.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/rule_engine.dir/rule_engine/main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/rule_engine.dir/rule_engine/RuleEngine.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/RuleEngine.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/RuleEngine.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/rule_engine.dir/rule_engine/PluginLoader.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/PluginLoader.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/rule_engine/PluginLoader.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/correlation_engine.dir/correlation/main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/correlation/main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/correlation/main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/userctl.dir/utilities/userctl.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/utilities/userctl.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/utilities/userctl.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetagenthook_EXPORTS -g -fPIC -std=gnu++17 -o CMakeFiles/fleetagenthook.dir/remediation/agent_hook/agent_hook.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/agent_hook/agent_hook.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/agent_hook/agent_hook.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/event_processor.dir/event_processor/main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/event_processor/main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/event_processor/main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/event_processor.dir/event_processor/EventProcessor.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/event_processor/EventProcessor.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/event_processor/EventProcessor.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/FilesystemMonitor.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/FilesystemMonitor.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/FilesystemMonitor.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/RemediationService.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/RemediationService.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/RemediationService.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/ThreatSignatureService.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/ThreatSignatureService.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/ThreatSignatureService.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/HTTPClient.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/HTTPClient.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/HTTPClient.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/PluginLoader.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/PluginLoader.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/PluginLoader.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/OsqueryConfig.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/OsqueryConfig.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/OsqueryConfig.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\" -g -std=gnu++17 -o CMakeFiles/fleetagent.dir/remediation/CommunicationService.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/CommunicationService.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/CommunicationService.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetrules_EXPORTS -g -fPIC -std=gnu++17 -o CMakeFiles/fleetrules.dir/remediation/blocking_rules/plugin_main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/blocking_rules/plugin_main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/blocking_rules/plugin_main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetrules_EXPORTS -g -fPIC -std=gnu++17 -o CMakeFiles/fleetrules.dir/remediation/blocking_rules/blocking_rules.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/remediation/blocking_rules/blocking_rules.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/remediation/blocking_rules/blocking_rules.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api_server.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api_server.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api_server.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/WebServer.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/WebServer.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/WebServer.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/nodes.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/nodes.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/nodes.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/events.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/events.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/events.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/config.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/config.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/config.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/stats.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/stats.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/stats.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/RequestRouter.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/RequestRouter.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/RequestRouter.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/http_common.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/http_common.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/http_common.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/scheduled_query.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/scheduled_query.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/scheduled_query.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -g -std=gnu++17 -o CMakeFiles/fleetapi.dir/server/api/dashboard.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/server/api/dashboard.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/server/api/dashboard.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Devent_rules_EXPORTS -g -fPIC -std=gnu++17 -o CMakeFiles/event_rules.dir/event_rules/plugin_main.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/event_rules/plugin_main.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/event_rules/plugin_main.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Devent_rules_EXPORTS -g -fPIC -std=gnu++17 -o CMakeFiles/event_rules.dir/event_rules/detection_rules.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/event_rules/detection_rules.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/event_rules/detection_rules.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetsdk_EXPORTS -g -fPIC -std=gnu++17 -o common/CMakeFiles/fleetsdk.dir/ConfigurationParser.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/common/ConfigurationParser.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/common/ConfigurationParser.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetsdk_EXPORTS -g -fPIC -std=gnu++17 -o common/CMakeFiles/fleetsdk.dir/ConnectionPool.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/common/ConnectionPool.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/common/ConnectionPool.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetsdk_EXPORTS -g -fPIC -std=gnu++17 -o common/CMakeFiles/fleetsdk.dir/hostinfo.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/common/hostinfo.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/common/hostinfo.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -Dfleetsdk_EXPORTS -g -fPIC -std=gnu++17 -o common/CMakeFiles/fleetsdk.dir/ThreadPool.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/common/ThreadPool.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/common/ThreadPool.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/b64.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/b64.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/b64.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/claims.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/claims.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/claims.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/crypto.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/crypto.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/crypto.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/digest.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/digest.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/digest.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/ecdsa.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/ecdsa.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/ecdsa.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/eddsa.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/eddsa.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/eddsa.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/header.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/header.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/header.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/hmac.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/hmac.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/hmac.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/jwtpp.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/jwtpp.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/jwtpp.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/pss.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/pss.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/pss.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/rsa.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/rsa.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/rsa.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/statics.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/statics.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/statics.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/export\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/include/local\"  -Wno-deprecated -g -std=gnu++17 -o 3rdparty/jwtpp/CMakeFiles/jwtpp-static.dir/src/tools.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/tools.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/jwtpp/src/tools.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Backup.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Backup.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Backup.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Column.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Column.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Column.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Database.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Database.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Database.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Exception.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Exception.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Exception.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Savepoint.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Savepoint.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Savepoint.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Statement.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Statement.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Statement.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/c++ -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/include\"  -Wall -Wextra -Wpedantic -Wswitch-enum -Wshadow -Wno-long-long -g -fPIC -fstack-protector -std=gnu++17 -o 3rdparty/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Transaction.cpp.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Transaction.cpp\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/src/Transaction.cpp"
+},
+{
+  "directory": "/home/yogesh/Documents/Container Research/vajra-fleet/build",
+  "command": "/usr/bin/cc -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -I\"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3\" -g -fPIC -fstack-protector -ffunction-sections -Wimplicit-fallthrough=0 -Wno-cast-function-type -o 3rdparty/SQLiteCpp/sqlite3/CMakeFiles/sqlite3.dir/sqlite3.c.o -c \"/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3/sqlite3.c\"",
+  "file": "/home/yogesh/Documents/Container Research/vajra-fleet/3rdparty/SQLiteCpp/sqlite3/sqlite3.c"
+}
+]

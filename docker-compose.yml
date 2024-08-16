@@ -1,0 +1,40 @@
+version: '3'
+name: vajra
+services:
+  postgres:
+    extends:
+      file: vajra/docker-compose.yml
+      service: postgres
+  server:
+    extends:
+      file: vajra/docker-compose.yml
+      service: server
+  rule_engine:
+    extends:
+      file: vajra/docker-compose.yml
+      service: rule_engine
+  event_processor:
+    extends:
+      file: vajra/docker-compose.yml
+      service: event_processor
+  ftp_server:
+    extends:
+      file: vajra/docker-compose.yml
+      service: ftp_server
+
+  frontend_service:
+    extends:
+      file: ui/docker-compose.yml
+      service: frontend_service
+  backend_service:
+    extends:
+      file: ui/docker-compose.yml
+      service: backend_service
+
+networks:
+  network:
+    driver: bridge
+
+  vajra_network:
+    driver: bridge
+    external: true

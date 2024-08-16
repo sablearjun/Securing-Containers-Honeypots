@@ -1,0 +1,22 @@
+<div style="background-color: transparent;text-align: start;padding-left: 15%;">
+    {%for key,value in res.items%}
+    {% if key != "parents" %}
+    <span style="color: green;">{{key}}</span>&nbsp;&nbsp;:&nbsp;&nbsp;{{value}}<br>
+    {% endif %}
+    {%endfor%}
+    <div style="display: flex;background-color: transparent;">
+        <span style="font-size: large;">
+            <a style="color: #17A2B8;text-decoration: none;font-size: 20px;" data-toggle="collapse" href="#raw_{{ id }}"
+                role="button" aria-expanded="false" aria-controls="raw_{{ id }}">
+                &#8627;
+            </a>
+        </span><br>
+    </div>
+    <div class="collapse" id="raw_{{ id }}" style="background-color: transparent">
+        <div id="parsed">
+            {%for key,value in parents.items%}
+            <span style="color: green;">{{key}}</span>&nbsp;&nbsp;:&nbsp;&nbsp;{{value}}<br>
+            {%endfor%}
+        </div>
+    </div>
+</div>

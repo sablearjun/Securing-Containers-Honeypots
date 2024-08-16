@@ -1,0 +1,12 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=/usr/local/lib
+sharedlibdir=/usr/local/lib
+includedir=/usr/local/include
+
+Name: jwtpp
+Description: JSON Object Signing and Encryption library for C++
+Version: 0.1.0
+URL: https://github.com/troian/jwtpp
+Libs: -L${libdir} -L${sharedlibdir} -ljwtpp
+Cflags: -I${includedir}

@@ -1,0 +1,70 @@
+version: '3'
+name: vajra
+services:
+
+  postgres:
+    container_name: database
+    image: postgres:14.2-alpine
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=vajra
+      - POSTGRES_DB=fleet
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - network
+
+  server:
+    container_name: vajra_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["./vajra_server"]
+    restart: always
+    ports:
+      - "1234:1234"
+    depends_on:
+      - postgres
+    networks:
+      - network
+
+  rule_engine:
+    container_name: rule_engine
+    image: vajra-server
+    command: ["./rule_engine"]
+    restart: always
+    depends_on:
+      - postgres
+      - server
+    networks:
+      - network
+
+  event_processor:
+    container_name: event_processor
+    image: vajra-server
+    command: ["./event_processor"]
+    restart: always
+    depends_on:
+      - postgres
+      - server
+    networks:
+      - network
+    
+
+  ftp_server:
+    image: python
+    container_name: file_server
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    command: ["python", "-m", "http.server", "8080"]
+    restart: always
+    ports:
+      - "8080:8080"
+
+networks:
+  network:
+    driver: bridge

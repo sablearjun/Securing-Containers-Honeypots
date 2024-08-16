@@ -1,0 +1,53 @@
+{% extends "boiler.html" %}
+{%load static%}
+{%load capthename%}
+
+{%block title%}Block Events{%endblock title%}
+
+
+<!-- **************************************************************************************************************
+                                    Nav Bar Start
+************************************************************************************************************** -->
+
+{%block stats%}{%endblock stats%}                   {%block stats_link%}    inactive    {%endblock stats_link%}
+
+{%block home%}{%endblock home%}               {%block home_link%} inactive  {%endblock home_link%}
+
+{%block events%}{%endblock events%}                 {%block events_link%}   inactive    {%endblock events_link%}
+
+{%block config%}{%endblock config%}                 {%block config_link%}   inactive    {%endblock config_link%}
+
+{%block blocklist%}active{%endblock blocklist%}           {%block blocklist_link%}    active    {%endblock blocklist_link%}
+
+{%block addhawk%}{%endblock addhawk%}               {%block addhawk_link%}  inactive    {%endblock addhawk_link%}
+
+<!-- **************************************************************************************************************
+                                        Nav Bar End
+************************************************************************************************************** -->
+
+
+{%block body%}
+    <div class="row">
+        <div class="col">
+            <div id="header" style="background-image: linear-gradient(45deg, #ef422a, #ffffff);background-size: 100%;-webkit-background-clip: text;-moz-background-clip: text;-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent;width: 200.2px;">
+            <p
+                style="color: rgb(255,255,255);font-family: Poppins, sans-serif;font-size: 35px;text-align: left;font-weight: 700;margin-bottom: 0;width: 900.2px;">
+                Block List</p>
+            </div>
+            <p style="color: #494d55;font-family: Poppins, sans-serif;width: 900.2px;">Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Libero</p>
+        </div>
+    </div>
+    <!-- containt goes here  -->
+</div>
+</div>
+{%endblock body%}
+
+
+{%block script%}
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+{%endblock script%}
